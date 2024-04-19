@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Самоуничтожение</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <button id="selfDestructButton">Самоуничтожить >:D</button>
+
+    <script>
+        document.getElementById('selfDestructButton').addEventListener('click', function() {
+            let count = 0;
+
+            function openNewTab() {
+                count++;
+                if (count <= 100) { // Открывает 100 вкладок
+                    window.open("mailto:someone@example.com", "_blank");
+                    setTimeout(openNewTab, 1000); // Открывает новую вкладку каждую секунду
+                }
+            }
+
+            openNewTab();
+        });
+    </script>
+</body>
+</html>
